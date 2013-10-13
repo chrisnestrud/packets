@@ -1,0 +1,11 @@
+{% extends "base.html"%}
+{%block title%}PCap Files{%endblock%}
+{%block location%}<p><a href="/">Home</a> -> PCap Files</p>{%endblock%}
+{%block content%}
+<p>Select your PCap file.</p>
+<ul>
+{%for pcap in pcaps:%}
+<li><a href="/pcap/{{pcap.file_hash}}">{{pcap.file_name}} ({{pcap.file_size}} bytes)</a></li>
+{%endfor%}
+</ul>
+{%endblock%}

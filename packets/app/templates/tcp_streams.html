@@ -1,0 +1,19 @@
+{% extends "base.html"%}
+{%block title%}TCP Streams{%endblock%}
+{%block location%}<p><a href="/">Home</a> -><a href="/pcaps/"> PCap Files</a> -> <a href="/pcap/{{filehash}}/">{{filename}}</a> -> TCP Streams</p>{%endblock%}
+{%block content%}
+<h1>TCP Streams</h1>
+<table>
+<caption>TCP Streams</caption>
+<tr><th>Stream ID</th><th>Source Address</th><th>Source Port</th><th>Destination Address</th><th>Destination Port</th></tr>
+{%for stream in streams %}
+<tr>
+<td><a href="/pcap/{{filehash}}/tcp_stream/{{stream.stream_id}}">{{stream.stream_id}}</a></td>
+<td>{{stream.saddr}}</td>
+<td>{{stream.sport}}</td>
+<td>{{stream.daddr}}</td>
+<td>{{stream.dport}}</td>
+</tr>
+{%endfor%}
+</table>
+{%endblock%}

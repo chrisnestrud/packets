@@ -1,0 +1,13 @@
+{% extends "base.html"%}
+{%block title%}{{packet_type_description}} - Packet Viewer{%endblock%}
+{%block location%}<p><a href="/">Home</a> -><a href="/pcaps/"> PCap Files</a> -> <a href="/pcap/{{filehash}}/">{{filename}}</a> -> {{packet_type_description}}</p>{%endblock%}
+{%block content%}
+<h1>{{packet_type_description}} Packet Viewer</h1>
+<p><a href="/pcap/{{filehash}}/packet/{{packet_type}}/{{prev_id}}" accesskey="p">Prev</a> | <a href="/pcap/{{filehash}}/packet/{{packet_type}}/{{next_id}}" accesskey="n">Next</a></p>
+<h2>Packet</h2>
+<dl>
+{%for pi in packet_info%}
+<dt>{{pi.name}}</dt> = <dd>{{pi.value}}</dd><br/>
+{%endfor%}
+</dl>
+{%endblock%}

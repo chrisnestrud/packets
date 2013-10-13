@@ -1,0 +1,13 @@
+{% extends "base.html"%}
+{%block title%}UDP DPort Information{%endblock%}
+{%block location%}<p><a href="/">Home</a> -><a href="/pcaps/"> PCap Files</a> -> <a href="/pcap/{{filehash}}">{{filename}}</a> -> UDP Dport Information</p>{%endblock%}
+{%block content%}
+<p>This report shows numbers of UDP packets by source address, destination address, and destination port.</p>
+<table>
+<caption>UDP Dport Information</caption>
+<tr><th>Source Address</th><th>Destination Address</th><th>Destination Port</th><th>Number of Packets</th></tr>
+{%for row in rep%}
+<tr><td>{{row[0]}}</td><td>{{row[1]}}</td><td>{{row[2]}}</td><td>{{row[3]}}</td></tr>
+{%endfor%}
+</table>
+{%endblock%}

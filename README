@@ -1,0 +1,16 @@
+This was intended to be a Flask powered website where users could upload
+Packet Capture files, extract useful/interesting information,
+and comment on their findings. It could be useful for distance education
+networking classes.
+
+Code exists to extract data from PCap files, including individual tcp
+streams. A PCap file can be browsed on the web using a very simple html
+interface.
+
+The following libraries are used:
+dpkt 1.7
+flowgrep 0.9
+libnids 1.24
+pylibcap 0.6.2
+pynids 0.6.1
+

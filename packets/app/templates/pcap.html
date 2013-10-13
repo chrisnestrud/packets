@@ -1,0 +1,25 @@
+{% extends "base.html"%}
+{%block title%}{{filename}} (PCap File){%endblock%}
+{%block location%}<p><a href="/">Home</a> -><a href="/pcaps/"> PCap Files</a> -> {{filename}}</p>{%endblock%}
+{%block content%}
+<h1>Stats</h1>
+<dl>
+{%for stat in stats%}
+<dt>{{stat.stat}}</dt> = <dd>{{stat.value}}</dd><br/>
+{%endfor%}
+</dl>
+<h1>Viewers</h1>
+<ul>
+<li><a href="/pcap/{{filehash}}/tcp_stream/">TCP Streams</a></li>
+<li><a href="/pcap/{{filehash}}/packet/tcp/">TCP Packets</a></li>
+<li><a href="/pcap/{{filehash}}/packet/udp/">UDP Packets</a></li>
+<li><a href="/pcap/{{filehash}}/packet/tcp_printable/">TCP Packets with printable data</a></li>
+<li><a href="/pcap/{{filehash}}/packet/udp_printable/">UDP Packets with printable data</a></li>
+<li><a href="/pcap/{{filehash}}/packet/tcp_nostream/">TCP Packets not in a stream</a></li>
+</ul>
+<h1>Reports</h1>
+<ul>
+<li><a href="/pcap/{{filehash}}/tcp/dport">TCP DPort Information</a></li>
+<li><a href="/pcap/{{filehash}}/udp/dport">UDP DPort Information</a></li>
+</ul>
+{%endblock%}

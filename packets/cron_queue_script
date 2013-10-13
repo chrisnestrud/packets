@@ -1,0 +1,5 @@
+#!/bin/sh
+cd /home/ccn/projects/packets/packets/app
+. ../env/bin/activate
+python process_queue_item.py > /dev/null
+

@@ -1,0 +1,14 @@
+{% extends "base.html"%}
+{%block title%}TCP Stream{%endblock%}
+{%block location%}<p><a href="/">Home</a> -><a href="/pcaps/"> PCap Files</a> -> <a href="/pcap/{{filehash}}/">{{filename}}</a> -> <a href="/pcap/{{filehash}}/tcp_stream/">TCP Streams</a> -> TCP Stream {{streamid}}</p>{%endblock%}
+{%block content%}
+<h1>TCP Stream {{streamid}}</h1>
+<p>Selected information from Packets.</p>
+{% for packet in packets %}
+<h2>{{packet.ip_src_text}}:{{packet.tcp_sport}} to {{packet.ip_dst_text}}:{{packet.tcp_dport}}</h2>
+<p>TCP packet id is {{packet.tcp_id}}</p>
+<p>TCP sequence number is {{packet.tcp_seq}}</p>
+<p>TCP Packet has {{packet.tcp_data_len}} bytes of data.</p>
+<blockquote>{{packet.tcp_data_text}}</blockquote>
+{% endfor %}
+{%endblock%}
